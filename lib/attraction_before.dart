@@ -26,7 +26,7 @@ class _AttractionState extends State<Attraction> {
     return Scaffold(
       body: Column(
         children: [
-          Image.asset('images/image.jpg'),
+          Image.asset('images/bg.jpg'),
           Container(
             padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
             child: Column(
@@ -53,10 +53,21 @@ class _AttractionState extends State<Attraction> {
                     Row(
                       children: [
                         IconButton(
-                          onPressed: (){},
-                          icon: Icon(Icons.star),
+                          onPressed: () {
+                            setState(() {});
+                            like = !like;
+                            // count = like ? count++ : count--;
+                            if (like) {
+                              count++;
+                            }
+                             else{
+                              count--;
+                              }
+                          },
+                          icon: Icon(
+                              like ? Icons.star : Icons.star_border_outlined),
                         ),
-                        Text('40'),
+                        Text('$count'),
                       ],
                     ),
                   ],
